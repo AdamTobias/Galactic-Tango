@@ -1,7 +1,6 @@
 (function (app) {
   'use strict';
   app.gameStart = false;
-  app.userId;
   var gameOver = document.getElementById('gameOver');
   console.log(gameOver);
 
@@ -34,13 +33,11 @@
   });
 
   var iLost = function () {
-    console.log('LOSER');
     gameOver.textContent = 'ALL HAIL ' + app.board.snakeColors[app.userId] + ' KING OF THE LOSERS';
     gameOver.style.display = 'inline-block';
   };
   var iWon = function () {
-    console.log('WINNER')
-    gameOver.textContent = 'YOU HAVE NOMNOMNOMED AND SURVIVED'
+    gameOver.textContent = 'YOU HAVE NOMNOMNOMED AND SURVIVED';
     gameOver.style.display = 'inline-block';
   };
 
@@ -62,11 +59,9 @@
     });
 
     app.socket.on('game over', function (winner) {
-      console.log(winner)
       readyButton.pressed = false;
       app.gameStart = false;
       setButtonStyle();
-      console.log('derpderpderp')
       if(app.userId === winner) {
         iWon();
       } else {
@@ -85,11 +80,11 @@
       var timer = setInterval(function () {
         readyButton.textContent = --counter;
         if(counter === 0) {
-          readyButton.textContent = 'NOM NOM NOM'
+          readyButton.textContent = 'NOM NOM NOM';
           clearInterval(timer);
         }
       }, 800);
     });
-  }
+  };
 
 }(window.app));
