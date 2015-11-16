@@ -3,7 +3,6 @@ var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
-// todo is there anyway to fix this
 module.exports = {
   app: app,
   io: io
@@ -13,6 +12,7 @@ var applySocketLogic = require('./socketLogic');
 
 app.use(express.static(__dirname + '/../client/'));
 
+//Whenever a socket connects, route it to './socketLogic' for handling
 io.on('connection', function (socket) {
   applySocketLogic(socket);
 });

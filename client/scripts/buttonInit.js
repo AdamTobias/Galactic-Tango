@@ -1,5 +1,6 @@
 (function (app) {
   'use strict';
+
   readyButton.pressed = false; //keeps track of whether or not the button is clickable.
   app.gameStart = false; // keeps track of whether a game is currently in progress
   app.userId; // the index of the user in the snakes array
