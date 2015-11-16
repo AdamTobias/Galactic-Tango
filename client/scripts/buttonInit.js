@@ -28,7 +28,7 @@
       openSocket();
       this.pressed = true;
       gameOver.style.display = 'none';
-      setButtonStyle()
+      setButtonStyle();
     }
   });
 
